@@ -19,6 +19,12 @@ gem 'uglifier', '>= 1.3.0'
 #bootstrap views
 gem "twitter-bootstrap-rails"
 gem 'jquery-rails'
+gem "font-awesome-rails"
+#facebook auth and API talk
+gem 'omniauth-facebook'
+gem 'koala'
+
+
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
