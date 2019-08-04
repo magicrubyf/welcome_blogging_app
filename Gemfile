@@ -23,7 +23,8 @@ gem "font-awesome-rails"
 #facebook auth and API talk
 gem 'omniauth-facebook'
 gem 'koala'
-
+#aws s3
+gem "aws-sdk-s3", require: false
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

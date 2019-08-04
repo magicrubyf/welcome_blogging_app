@@ -26,4 +26,8 @@ class User < ApplicationRecord
     picture["picture"]["data"]["url"]
   end
 
+  def total_posts
+    posts.count
+  end
+
 end

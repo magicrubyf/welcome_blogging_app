@@ -6,7 +6,7 @@
       <%= image_tag (user.picture("normal")) %>
         <div class="user-info">
           <%= user.name %><br/>
-          <%= link_to "Total Posts: #{user.posts.count}", {controller: "users", action: "show", id: user.id}, class:"button_1" %>
+          <%= link_to "Total Posts: #{user.total_posts}", {controller: "users", action: "show", id: user.id}, class:"button_1" %>
         </div>
       </div>
     <% end %>

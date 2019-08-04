@@ -1,8 +1,16 @@
+
+body {margin: 0 !important;
+      background-color: #eee !important;
+      font-family: 'Roboto', sans-serif;
+}
+
+.page-header {text-align: center;}
+
 /*-----------------------------------------------------*/
 /* NaV */
 /*-----------------------------------------------------*/
 
-body {margin: 0 !important; }
+
 
 .navbar-static-top {padding: 15px;}
 
@@ -24,6 +32,8 @@ body {margin: 0 !important; }
     color: #666;
 }
 
+.btn-danger {color:#fff !important;}
+
 
 /*-----------------------------------------------------*/
 /* Users */
@@ -42,3 +52,62 @@ body {margin: 0 !important; }
 }
 
 .user-info a {margin-top: 10px; display: block;}
+
+/*-----------------------------------------------------*/
+/* Posts */
+/*-----------------------------------------------------*/
+
+/*********** index **********************/
+
+.post-index {margin-top:50px;}
+
+.post-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.post-title, .post-user {position: relative; top: 10px;}
+
+.post-title a {
+
+  font-size: 170%;
+  font-weight: 800;
+}
+
+.post-title a:visited {color: #176a87;}
+
+.post-user  {
+  top:7px;
+}
+
+.post-container img {width: 100%; height: 430px; }
+
+.commands {
+    display: inline-block;
+    position: relative;
+    top: 8px;
+}
+
+.commands a:first-child {color: #0510ff;}
+
+.commands a:last-child {color: red;}
+
+/*********** show **********************/
+
+.post-show img {
+  width: 40%;
+  margin-bottom: 30px;
+  float: left;
+}
+
+.post-show h1 {
+    margin-left: 50px;
+    display: inline-block;
+    font-size: 300%;
+}
+
+.content p {
+    font-size: 140%;
+    letter-spacing: 0.8px;
+    line-height: 25px
+  }
