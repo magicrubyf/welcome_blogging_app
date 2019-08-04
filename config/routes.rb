@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   #posts
   resources :posts
 
+  #policy
+  get 'policy', to: 'home#policy'
+
 
 end
