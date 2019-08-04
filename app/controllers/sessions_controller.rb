@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.find_or_create_from_auth_hash(auth_hash)
     session[:user_id]=user.id
     flash[:success]="You are successfully logged in."
-    redirect_to root_path
+    redirect_to controller: "users", action: "show", id: current_user.id
   end
 
   def destroy

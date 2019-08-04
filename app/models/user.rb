@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  has_many :posts
 
   def self.find_or_create_from_auth_hash(auth_hash)
     #find_or_create_user
@@ -19,9 +20,9 @@ class User < ApplicationRecord
     end
   end
 
-  def picture
+  def picture(size)
     graph = Koala::Facebook::API.new(auth_key)
-    picture=graph.get_object("me",{fields:"picture{url}"})
+    picture=graph.get_object("me",{fields:"picture.type(#{size}){url}"})
     picture["picture"]["data"]["url"]
   end
 

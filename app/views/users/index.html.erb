@@ -1,0 +1,14 @@
+<div class="users_index">
+  <h2>Users</h2>
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-lg-4">
+      <%= image_tag (user.picture("normal")) %>
+        <div class="user-info">
+          <%= user.name %><br/>
+          <%= link_to "Total Posts: #{user.posts.count}", {controller: "users", action: "show", id: user.id}, class:"button_1" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

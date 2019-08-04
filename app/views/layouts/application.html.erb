@@ -16,18 +16,19 @@
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Blogging App</a>
+        <a class="navbar-brand" href="\">Blogging App</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Posts", "/path1"  %></li>
-            <li><%= link_to "Users", "/path2"  %></li>
+            <li><%= link_to "Posts", posts_path  %></li>
+            <li><%= link_to "Users", users_path  %></li>
             <li><%= link_to "Hashtags", "/path3"  %></li>
             <li class="float-right">
               <% if logged_in? %>
               <div class="nav-user-logged_in">
-                <%= image_tag (current_user.picture) %>
-                <%= current_user.name %>
-                (<%= link_to "logout",logout_path %>)
+                <%= link_to controller: "users", action: "show", id: current_user.id do %>
+                <%= image_tag (current_user.picture("small")) %> <%= current_user.name %>
+                <% end %>
+                (<%= link_to "logout",logout_path,class: "button_1" %>)
               </div>
 
               <% else %>
