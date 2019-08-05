@@ -59,7 +59,7 @@ body {margin: 0 !important;
 
 /*********** index **********************/
 
-.post-index {margin-top:50px;}
+.post-index {margin-top:70px;}
 
 .post-container {
   width: 90%;
@@ -91,6 +91,23 @@ body {margin: 0 !important;
 .commands a:first-child {color: #0510ff;}
 
 .commands a:last-child {color: red;}
+
+.post-hashtags {
+  position: relative;
+  top: 13px;
+  left: 15px;
+  font-weight: 700;
+  font-size: 120%;
+  color: #1958c6;
+}
+
+.post-hashtags .button_1,
+.post_hashtags .button_1:visited {
+  color: #1958c6;
+}
+.post-hashtags .button_1:hover {color: #3673df; text-decoration: none;}
+
+
 
 /*********** show **********************/
 

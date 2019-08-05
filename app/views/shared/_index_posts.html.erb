@@ -1,26 +1,36 @@
 <% posts.each do |post| %>
-<div class="col-md-6 post-index">
-  <div class="post-container">
-    <%= image_tag post.picture %>
-    <span class="post-title"><%= link_to post.title, post_path(post) , class: "button_1"%> <em><%= post.updated_at.strftime("Updated_at %d/%m/%Y") %></em></span><br/>
-
-    <% if current_page?(posts_path) %>
-      <span class="post-user"><%= link_to post.user.name, {controller: "users", action: "show", id: post.user.id}, class: "button_1 post-user" %></span>
-    <% end %>
-
-
-      <% if logged_in? && post.user == current_user %>
-        <div class="commands">
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                        edit_post_path(post), :class => 'button_1' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                        post_path(post),
-                        :method => 'delete',
-                        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                        :class => 'button_1' %>
-        </div>
-      <% end %>
-    
+  <div class="col-md-6 post-index">
+    <div class="post-container">
+      <%= link_to (image_tag post.picture), post_path(post) %>
+      <span class="post-title">
+        <%= link_to post.title, post_path(post) , class: "button_1"%> <%#= post.updated_at.strftime("Updated_at %d/%m/%Y") %>
+      </span><br/>
+        <% if current_page?(posts_path) %>
+          <span class="post-user">
+            <%= link_to post.user.name, user_posts_path(post.user), class: "button_1 post-user" %>
+          </span>
+            <% if !post.hashtags.empty? %>
+              <span class="post-hashtags">
+                <% post.hashtags.each do |hashtag| %>
+                  <%= link_to search_path(hashtags: "##{hashtag.name}"),class: "button_1" do %>
+                    #<%= hashtag.name %>
+                  <% end %>
+                <% end %>
+              </span>
+            <% end %>
+          <% else %>
+            <% if logged_in? && post.user == current_user %>
+              <div class="commands">
+                <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                              edit_post_path(post), :class => 'button_1' %>
+                <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                              post_path(post),
+                              :method => 'delete',
+                              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                              :class => 'button_1' %>
+              </div>
+            <% end %>
+        <% end %>
+    </div>
   </div>
-</div>
 <% end %>

@@ -1,6 +1,10 @@
 class Post < ApplicationRecord
+  after_commit :create_hashtags, on: [:create, :update]
+
   belongs_to :user
   has_one_attached :picture
+  has_many :post_hashtags
+  has_many :hashtags, through: :post_hashtags
 
   validates :title, presence: true, length: {minimum:5, maximum:30}
   validates :body, presence: true, length: {minimum:30, maximum:3000}
@@ -19,5 +23,23 @@ class Post < ApplicationRecord
     end
   end
 
+
+
+  private
+
+  def create_hashtags
+    hashtags_from_post_body.each do |name|
+      if Hashtag.exists?(name: name)
+        old_hashtag=Hashtag.where(name: name).first
+        PostHashtag.create(post_id: id, hashtag_id: old_hashtag.id)
+      else
+        hashtags.create(name: name)
+      end
+    end
+  end
+
+  def hashtags_from_post_body
+    body.to_s.scan(/#\w+/).map{|name| name.gsub("#", "")}
+  end
 
 end

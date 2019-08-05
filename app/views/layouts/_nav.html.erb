@@ -6,6 +6,9 @@
         <li><%= link_to "Posts", posts_path  %></li>
         <li><%= link_to "Users", users_path  %></li>
         <li><%= link_to "Hashtags", "/path3"  %></li>
+        <% if logged_in? %>
+          <li><%= link_to "Create new post", new_post_path  %></li>
+        <% end %>
         <li class="float-right">
           <% if logged_in? %>
           <div class="nav-user-logged_in">

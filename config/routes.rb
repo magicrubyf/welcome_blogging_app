@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   #home
   root 'home#index'
   get 'home/index'
@@ -11,10 +10,13 @@ Rails.application.routes.draw do
 
   #users
   get 'users',to: 'users#index'
-  get 'users/:id/posts', to: 'users#show'
+  get 'users/:id/posts', to: 'users#show', as: 'user_posts'
 
   #posts
   resources :posts
+
+  #hashtags search
+  get 'search', to: 'search#index'
 
   #policy
   get 'policy', to: 'home#policy'
