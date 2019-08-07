@@ -62,7 +62,7 @@ body {margin: 0 !important;
 .post-index {margin-top:70px;}
 
 .post-container {
-  width: 90%;
+  width: 98%;
   margin: 0 auto;
 }
 
@@ -80,7 +80,7 @@ body {margin: 0 !important;
   top:7px;
 }
 
-.post-container img {width: 100%; height: 430px; }
+.post-container img {width: 100%; height: 370px; }
 
 .commands {
     display: inline-block;
@@ -94,7 +94,7 @@ body {margin: 0 !important;
 
 .post-hashtags {
   position: relative;
-  top: 13px;
+  top: 16px;
   left: 15px;
   font-weight: 700;
   font-size: 120%;
@@ -112,16 +112,17 @@ body {margin: 0 !important;
 /*********** show **********************/
 
 .post-show img {
-  width: 40%;
   margin-bottom: 30px;
-  float: left;
 }
 
-.post-show h1 {
-    margin-left: 50px;
-    display: inline-block;
-    font-size: 300%;
+.hashtags {
+  font-size: 50%;
+  display: inline-block;
+  position: relative;
+  bottom: 19px;
+
 }
+
 
 .content p {
     font-size: 140%;

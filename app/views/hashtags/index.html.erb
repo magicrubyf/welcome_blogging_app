@@ -1,0 +1,12 @@
+<h1 class="page-header">Hashtags</h1>
+<div class="col-lg-12">
+  <div class="row">
+    <% @hashtags.each do |hashtag| %>
+      <div class="col-lg-2 post-hashtags">
+        <%= link_to  search_path(hashtags: "##{hashtag.name}"), class: "button_1" do %>
+          #<%= hashtag.name %> (<%= hashtag.posts.size %>)
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

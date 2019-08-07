@@ -1,0 +1,9 @@
+<% if !post.hashtags.empty? %>
+  <span class="post-hashtags">
+    <% post.hashtags.each do |hashtag| %>
+      <%= link_to search_path(hashtags: "##{hashtag.name}"),class: "button_1" do %>
+        #<%= hashtag.name %>
+      <% end %>
+    <% end %>
+  </span>
+<% end %>

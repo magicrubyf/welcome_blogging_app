@@ -16,7 +16,8 @@
 	direction: ltr;
 	font-size:14px;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-
+  resize: vertical;
+  height: 392px;
 	-webkit-transition: height 0.2s;
 	border: 1px solid #cccccc;
 	-webkit-border-radius: 4px;

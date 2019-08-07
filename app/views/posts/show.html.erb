@@ -1,18 +1,13 @@
 <%- model_class = Post -%>
-
-
 <div class="post-show">
-  <div class="col-lg-12">
+  <div class="col-lg-8 col-lg-offset-2">
     <%= image_tag @post.picture %>
-    <h1><%= @post.title %></h1>
   </div>
-
-  <div class="col-lg-12 content">
+  <div class="col-lg-8 content col-lg-offset-2">
+    <h1><%= @post.title %> <span class="hashtags"><%= render 'shared/display_hashtags', post: @post %></span></h1>
     <p>
       <%= @post.body %>
     </p>
+    <%= link_to "Back to posts", posts_path, class: "button_1" %>
   </div>
 </div>
-
-
-<%= link_to "Back to posts", posts_path, class: "btn btn-default" %>

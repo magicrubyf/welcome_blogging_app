@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   #posts
   resources :posts
 
+  #hashtags index
+  get 'hashtags', to: 'hashtags#index'
+
   #hashtags search
   get 'search', to: 'search#index'
 

@@ -1,10 +1,11 @@
 class Post < ApplicationRecord
+  after_update :delete_any_old_hashtags_after_update
   after_commit :create_hashtags, on: [:create, :update]
 
   belongs_to :user
   has_one_attached :picture
-  has_many :post_hashtags
-  has_many :hashtags, through: :post_hashtags
+  has_many :post_hashtags, dependent: :destroy
+  has_many :hashtags , through: :post_hashtags
 
   validates :title, presence: true, length: {minimum:5, maximum:30}
   validates :body, presence: true, length: {minimum:30, maximum:3000}
@@ -27,11 +28,26 @@ class Post < ApplicationRecord
 
   private
 
+  def delete_any_old_hashtags_after_update
+    if hashtags_to_delete.empty?
+      post_hashtags.each do |post_hashtag|
+        post_hashtag.destroy
+      end
+    else
+      hashtags_to_delete.each do |name|
+        hashtag=Hashtag.find_by(name: name)
+        PostHashtag.find_by(hashtag_id: hashtag.id, post_id: id).destroy
+      end
+    end
+  end
+
   def create_hashtags
-    hashtags_from_post_body.each do |name|
+    hashtags_from_post_body.uniq.each do |name|
       if Hashtag.exists?(name: name)
+        unless hashtags.exists?(name: name)
         old_hashtag=Hashtag.where(name: name).first
         PostHashtag.create(post_id: id, hashtag_id: old_hashtag.id)
+        end
       else
         hashtags.create(name: name)
       end
@@ -40,6 +56,14 @@ class Post < ApplicationRecord
 
   def hashtags_from_post_body
     body.to_s.scan(/#\w+/).map{|name| name.gsub("#", "")}
+  end
+
+  def previous_hashtags
+    hashtags.map {|hashtag| hashtag.name}
+  end
+
+  def hashtags_to_delete
+    previous_hashtags - hashtags_from_post_body
   end
 
 end
