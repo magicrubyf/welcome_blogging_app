@@ -1,9 +1,9 @@
 <%- model_class = Post -%>
 <div class="post-show">
-  <div class="col-lg-8 col-lg-offset-2">
+  <div class="col-lg-10 col-lg-offset-1">
     <%= image_tag @post.picture %>
   </div>
-  <div class="col-lg-8 content col-lg-offset-2">
+  <div class="col-lg-10 content col-lg-offset-1">
     <h1><%= @post.title %> <span class="hashtags"><%= render 'shared/display_hashtags', post: @post %></span></h1>
     <p>
       <%= @post.body %>

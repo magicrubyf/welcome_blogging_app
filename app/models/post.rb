@@ -9,8 +9,18 @@ class Post < ApplicationRecord
 
   validates :title, presence: true, length: {minimum:5, maximum:30}
   validates :body, presence: true, length: {minimum:30, maximum:3000}
+  validate :picture_presence
   validate :picture_size
 
+
+
+
+  def picture_presence
+    if !picture.attached?
+      picture.purge
+      errors[:base] << 'Picture must be present.'
+    end
+  end
 
   def picture_size
     if picture.attached?

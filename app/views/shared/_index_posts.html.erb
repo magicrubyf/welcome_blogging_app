@@ -1,15 +1,16 @@
+<class="row">
 <% posts.each do |post| %>
   <div class="col-md-6 post-index">
+    <span class="post-title">
+      <%= link_to post.title, post_path(post) , class: "button_1"%> <%#= post.updated_at.strftime("Updated_at %d/%m/%Y") %>
+    </span>
+    <%= render 'shared/display_hashtags', post: post %>
     <div class="post-container">
       <%= link_to (image_tag post.picture), post_path(post) %>
-      <span class="post-title">
-        <%= link_to post.title, post_path(post) , class: "button_1"%> <%#= post.updated_at.strftime("Updated_at %d/%m/%Y") %>
-      </span><br/>
         <% if current_page?(posts_path) %>
           <span class="post-user">
             <%= link_to post.user.name, user_posts_path(post.user), class: "button_1 post-user" %>
           </span>
-            <%= render 'shared/display_hashtags', post: post %>
           <% else %>
             <% if logged_in? && post.user == current_user %>
               <%= render 'shared/commands', post: post %>
@@ -18,3 +19,5 @@
     </div>
   </div>
 <% end %>
+
+</class>
