@@ -12,6 +12,12 @@ class Post < ApplicationRecord
   validate :picture_presence
   validate :picture_size
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  def should_generate_new_friendly_id?
+    title_changed?
+  end
+
 
 
 
