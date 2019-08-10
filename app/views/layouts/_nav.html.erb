@@ -13,7 +13,7 @@
           <% if logged_in? %>
           <div class="nav-user-logged_in">
             <%= link_to controller: "users", action: "show", id: current_user.id do %>
-            <%= image_tag (current_user.picture("small")) %> <%= current_user.name %>
+            <%= image_tag (current_user.picture),size: "50x50" %> <%= current_user.name %>
             <% end %>
             (<%= link_to "logout",logout_path,class: "button_1" %>)
           </div>

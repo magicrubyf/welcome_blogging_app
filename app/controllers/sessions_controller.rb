@@ -1,14 +1,18 @@
 class SessionsController < ApplicationController
 
   def create
-    user = User.find_or_create_from_auth_hash(auth_hash)
-    session[:user_id]=user.id
-    flash[:success]="You are successfully logged in."
-    redirect_to controller: "users", action: "show", id: current_user.id
+    if user = User.find_or_create_from_auth_hash(auth_hash)
+      session[:user_info]=auth_hash
+      flash[:success]="You are successfully logged in."
+      redirect_to user_posts_path(current_user)
+    else
+      flash[:danger]="Something went wrong, try again"
+      redirect_to root_path
+    end
   end
 
   def destroy
-    session[:user_id]=nil
+    session[:user_info]=nil
     redirect_to root_path
   end
 
