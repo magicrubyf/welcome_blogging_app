@@ -1,6 +1,5 @@
-<class="row">
 <% posts.each do |post| %>
-  <div class="col-md-6 post-index">
+  <div class="col-sm-6 post-index hidden-phone">
     <span class="post-title">
       <%= link_to post.title, post_path(post) , class: "button_1"%> <%#= post.updated_at.strftime("Updated_at %d/%m/%Y") %>
     </span>
@@ -19,5 +18,3 @@
     </div>
   </div>
 <% end %>
-
-</class>

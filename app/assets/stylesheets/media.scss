@@ -1,17 +1,15 @@
-@media only screen and (max-width: 1600px) {
-
-
-}
-
-
 @media only screen and (max-width: 1199px) {
 
-
+.form-horizontal .control-label {text-align: left;}
 
 }
 
 
 @media only screen and (max-width: 991px) {
+
+ .container {width: 100%;}
+ .post-container img {height: 310px;}
+ .navbar-header {display: none;}
 
 
 
@@ -20,16 +18,35 @@
 
 @media only screen and (max-width: 767px) {
 
+.navbar-header {display: block;}
+.mobile-brand {display: none;}
+
+//search-form
+.search-form {width: 50%; margin: 0 auto;}
+.search_field {margin-bottom: 15px;}
+
+//post index
+.post-index { width: 95%; margin: 0 auto; margin-bottom: 80px;}
+.post-container img {height: auto;}
+
+//index posts hashtag
+.post-title {top: -25px;}
+.post-index .post-hashtags {display: contents;}
+
+//hashtags-index
+
+.index-hashtag .post-hashtags a {width: 50%; margin: 0 auto; display: block; text-align: center;}
 
 
 }
 
 @media only screen and (max-width: 480px) {
 
+  .jumbotron .display-4 img {width: 100%;}
 
-}
-
-@media only screen and (max-width: 349px) {
+  .users_index .col-xs-6 {width: 100%; margin-bottom: 20px;}
+  .users-index-info {display: -webkit-box;  position: relative; left: 6px;}
+  .user-container {margin: 0 auto; display: block; width: 70%;}
 
 
 

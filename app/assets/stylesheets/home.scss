@@ -1,10 +1,4 @@
-
-body {margin: 0 !important;
-      background-color: #eee !important;
-      font-family: 'Roboto', sans-serif;
-}
-
-.page-header {text-align: center;}
+.page-header {text-align: center; margin-bottom: 80px;}
 
 /*-----------------------------------------------------*/
 /* NaV */
@@ -13,6 +7,8 @@ body {margin: 0 !important;
 
 
 .navbar-static-top {padding: 15px;}
+
+.navbar-static-top {margin-bottom: 0;}
 
 .navbar-nav {float:right;}
 
@@ -40,6 +36,8 @@ body {margin: 0 !important;
 /*-----------------------------------------------------*/
 
 .users_index h2 {text-align: center; margin-bottom: 50px;}
+
+.users_index .col-sm-6 {padding-bottom: 90px;}
 
 .users_index img {float: left; border-radius: 50%;}
 
@@ -73,6 +71,8 @@ body {margin: 0 !important;
   margin-left: auto;
 }
 
+.form-horizontal .control-label {padding-top: 2px;}
+
 
 /*********** index **********************/
 
@@ -99,6 +99,8 @@ body {margin: 0 !important;
 
 .post-title a:visited {color: #176a87;}
 
+.post-user a{ color: #666;}
+
 .post-user  {
   top:7px;
 }
@@ -115,6 +117,10 @@ body {margin: 0 !important;
 
 .commands a:last-child {color: red;}
 
+/*-----------------------------------------------------*/
+/* Hashtags */
+/*-----------------------------------------------------*/
+
 .post-hashtags {
   position: absolute;
   font-weight: 700;
@@ -126,13 +132,16 @@ body {margin: 0 !important;
   color: #1958c6;
 }
 
+
 .post-hashtags .button_1,
 .post_hashtags .button_1:visited {
   color: #1958c6;
 }
 .post-hashtags .button_1:hover {color: #3673df; text-decoration: none;}
 
+.index-hashtag .post-hashtags {position: relative; margin-bottom: 20px; top:0; left:0;}
 
+.index-hashtag  .post-hashtags  {font-weight: 200;}
 
 /*********** show **********************/
 
@@ -144,9 +153,7 @@ body {margin: 0 !important;
 .hashtags {
   font-size: 50%;
 
-
 }
-
 
 .content p {
     font-size: 140%;

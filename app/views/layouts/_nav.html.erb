@@ -1,6 +1,7 @@
+<%= nav_bar fixed: :top, brand: "Blogging app", responsive: true do %>
 <div class="navbar navbar-default navbar-static-top">
   <div class="container">
-    <a class="navbar-brand" href="\">Blogging App</a>
+    <a class="navbar-brand mobile-brand" href="\">Blogging App</a>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <li><%= link_to "Posts", posts_path  %></li>
@@ -12,7 +13,7 @@
         <li class="float-right">
           <% if logged_in? %>
           <div class="nav-user-logged_in">
-            <%= link_to controller: "users", action: "show", id: current_user.id do %>
+            <%= link_to user_posts_path(current_user) do %>
             <%= image_tag (current_user.picture),size: "50x50" %> <%= current_user.name %>
             <% end %>
             (<%= link_to "logout",logout_path,class: "button_1" %>)
@@ -28,3 +29,4 @@
     </div>
   </div>
 </div>
+<% end %>

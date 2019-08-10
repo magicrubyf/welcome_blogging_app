@@ -1,10 +1,10 @@
 <%- model_class = Post -%>
 <div class="page-header">
-  <h1>Posts by everyone! </h1>
+    <h1><%= title %></h1>
   <!-- search for hashtags -->
   <%= form_with url: search_path, method: :get, local: true, class: 'form-inline search-form' do |form| %>
-    <%= form.text_field :hashtags, value: params[:hashtags], class: 'form-control mr-sm-2', placeholder: '#search #hashtags' %>
-    <%= form.submit "Search" %>
+    <%= form.text_field :hashtags, value: params[:hashtags], class: 'form-control search_field', placeholder: '#search #hashtags' %>
+    <%= form.submit "Search"%>
   <% end %>
 </div>
 <%= render 'shared/index_posts', posts: @posts %>
