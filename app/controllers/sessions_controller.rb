@@ -20,7 +20,9 @@ class SessionsController < ApplicationController
   private
 
   def auth_hash
-    request.env['omniauth.auth']
+    auth_hash=request.env['omniauth.auth']
+    auth_hash['credentials']['token']= User.extend_auth(auth_hash['credentials']['token'])
+    return auth_hash
   end
 
 end
