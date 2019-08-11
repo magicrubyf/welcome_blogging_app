@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class HashtagTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @hashtag=hashtags(:one)
+  end
+
+  test 'hashtag should be unique' do
+    @hashtag.save
+    hashtag=hashtags(:two)
+    assert_not hashtag.valid?
+  end
 end

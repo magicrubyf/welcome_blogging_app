@@ -3,11 +3,9 @@
 one:
   uid: MyString
   name: MyString
-  auth_key: MyString
-  auth_expires_at: 1
+  picture: MypictureUrl
 
 two:
   uid: MyString
   name: MyString
-  auth_key: MyString
-  auth_expires_at: 1
+  picture: MypictureUrl

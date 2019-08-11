@@ -8,8 +8,9 @@ class User < ApplicationRecord
     name_changed?
   end
 
+  validates :uid, :name, :picture , presence: true
 
-  
+
 
   def self.find_or_create_from_auth_hash(auth_hash)
     graph=Koala::Facebook::API.new(auth_hash['credentials']['token'])
