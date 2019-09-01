@@ -24,6 +24,8 @@ gem "font-awesome-rails"
 gem 'omniauth-facebook'
 gem 'koala'
 
+
+
 gem 'friendly_id', '~> 5.2.4'
 #aws s3
 gem "aws-sdk-s3", require: false
