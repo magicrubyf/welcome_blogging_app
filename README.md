@@ -6,7 +6,7 @@
 <ul>
   <li>They should also be able to sign out</li>
   <li>After signing in, their profile photo should be displayed in the top navbar</li>
-  <li>The access_token provided by FB is a short-lived one (2hrs), see how you can exchange it for a longer lived one (60 days)</li>
+  <li>The access_token should be a longer lived one (60 days)</li>
 </ul>
 
 <h3>Users can create blog posts with:</h3>
